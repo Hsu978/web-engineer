@@ -88,8 +88,8 @@ export function CompressTool() {
 
     try {
       const pdfjs = await import('pdfjs-dist/legacy/build/pdf.mjs');
-      const worker = await import('pdfjs-dist/legacy/build/pdf.worker.min.mjs?url');
-      (pdfjs as any).GlobalWorkerOptions.workerSrc = (worker as any).default;
+      (pdfjs as any).GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/legacy/build/pdf.worker.min.mjs';
+
 
       const cfg = LEVELS[level];
       const sourcePdf = await (pdfjs as any).getDocument({ data: await file.arrayBuffer() }).promise;
